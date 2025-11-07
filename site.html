@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Excel Desde Cero — Manual práctico | Aprende y mejora tu empleo</title>
+  <meta name="description" content="Excel Desde Cero — Manual práctico en PDF. Aprende fórmulas, tablas, gráficos y automatizaciones. Ideal para principiantes en LATAM." />
+  <meta property="og:title" content="Excel Desde Cero — Manual práctico" />
+  <meta property="og:description" content="Aprende Excel desde cero y transforma tu carrera profesional. Acceso instantáneo tras la compra." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/cover-preview.png" />
+  <meta name="theme-color" content="#0f766e" />
+
+  <!-- === STYLES: modern, attractive, professional === -->
+  <style>
+    /* Reset + base */
+    :root{
+      --green-700:#0f766e;
+      --green-500:#10b981;
+      --accent:#06b6d4;
+      --muted:#6b7280;
+      --bg:#f7faf9;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.6);
+      --max-w:1100px;
+      --radius:16px;
+      --shadow: 0 8px 30px rgba(15,23,42,0.08);
+      --glass-shadow: 0 6px 20px rgba(2,6,23,0.06);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:linear-gradient(180deg,#ecfeff 0%, #f7faf9 45%);color:#052036; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{max-width:var(--max-w);margin:0 auto;padding:28px;}
+
+    /* Header */
+    header.site-header{position:sticky;top:0;z-index:60;background:linear-gradient(90deg,var(--green-700), var(--green-500));padding:14px;border-bottom:1px solid rgba(255,255,255,0.06);box-shadow:var(--glass-shadow)}
+    .brand{display:flex;align-items:center;gap:14px;color:white}
+    .brand .logo{width:48px;height:48px;border-radius:10px;background:linear-gradient(135deg,#ffffff22,#ffffff11);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px}
+    .brand h1{font-size:18px;margin:0}
+    .nav{display:flex;gap:12px;align-items:center}
+    .cta-header{background:white;color:var(--green-700);padding:10px 14px;border-radius:12px;font-weight:700;box-shadow:0 6px 18px rgba(16,185,129,0.12)}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 460px;gap:28px;align-items:center;margin-top:36px}
+    @media (max-width:980px){.hero{grid-template-columns:1fr;}}
+    .hero-card{background:linear-gradient(180deg,rgba(255,255,255,0.85),rgba(255,255,255,0.75));padding:34px;border-radius:var(--radius);box-shadow:var(--shadow);backdrop-filter: blur(6px)}
+    .kicker{display:inline-block;background:linear-gradient(90deg,var(--green-700),var(--accent));padding:6px 12px;border-radius:12px;color:white;font-weight:700;margin-bottom:14px;font-size:13px}
+    h2.title{font-size:34px;line-height:1.02;margin:0 0 14px 0}
+    p.lead{margin:0;color:var(--muted);font-size:16px}
+
+    .benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:18px}
+    @media (max-width:640px){.benefits{grid-template-columns:1fr}}
+    .benefit{display:flex;gap:10px;align-items:flex-start;background:linear-gradient(180deg,#ffffff,#fbfffd);padding:12px;border-radius:12px;border:1px solid rgba(6,95,84,0.04)}
+    .benefit .dot{width:40px;height:40px;border-radius:8px;background:linear-gradient(180deg,var(--green-500),var(--green-700));color:white;display:flex;align-items:center;justify-content:center;font-weight:800}
+
+    .hero-actions{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap}
+    .btn-primary{background:linear-gradient(90deg,var(--green-700),var(--green-500));color:white;padding:14px 18px;border-radius:12px;font-weight:800;border:0;box-shadow:0 12px 30px rgba(16,185,129,0.12)}
+    .btn-ghost{background:transparent;border:2px solid var(--green-700);color:var(--green-700);padding:12px 14px;border-radius:12px;font-weight:700}
+
+    /* Right column */
+    .card-video{background:linear-gradient(180deg,#ffffff,#f8fffc);padding:18px;border-radius:14px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;align-items:stretch}
+    .cover-preview{height:220px;border-radius:12px;background:linear-gradient(90deg,#0f766e22,#06b6d422);display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .cover-preview img{width:160px;transform:translateY(5px);filter:drop-shadow(0 10px 20px rgba(2,6,23,0.08))}
+    .meta{display:flex;gap:12px;align-items:center;justify-content:space-between}
+    .meta small{color:var(--muted)}
+
+    /* Video area */
+    .vsl-wrap{margin-top:36px;background:linear-gradient(180deg,#ffffff,#fbfff9);padding:20px;border-radius:14px;box-shadow:var(--glass-shadow)}
+    .video-embed{width:100%;height:420px;background:#000;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+    @media (max-width:700px){.video-embed{height:220px}}
+
+    .video-embed video{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Proof & testimonials */
+    .proofs{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+    @media (max-width:900px){.proofs{grid-template-columns:1fr}}
+    .proof{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 8px 24px rgba(2,6,23,0.04)}
+    .stars{color:#f59e0b;font-weight:800}
+
+    /* Features / details */
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+    @media (max-width:980px){.features-grid{grid-template-columns:1fr}}
+    .feature{background:linear-gradient(180deg,#ffffff,#fbfff9);padding:16px;border-radius:12px;box-shadow:var(--shadow);display:flex;gap:12px;align-items:flex-start}
+    .feature .icon{width:46px;height:46px;border-radius:10px;background:linear-gradient(90deg,var(--green-700),var(--accent));display:flex;align-items:center;justify-content:center;color:white;font-weight:700}
+
+    /* FAQ */
+    .faq{margin-top:28px;background:transparent;padding:8px}
+    .accordion{border-radius:12px;overflow:hidden}
+    .q{background:#fff;padding:14px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #f1f5f9;cursor:pointer}
+    .a{padding:14px;background:linear-gradient(180deg,#fbfff9,#ffffff);display:none;color:var(--muted);}
+
+    /* Final CTA */
+    .final-cta{margin-top:36px;background:linear-gradient(90deg,var(--green-700),var(--green-500));color:white;padding:28px;border-radius:16px;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .final-cta h3{margin:0;font-size:22px}
+    .final-cta p{margin:0;color:rgba(255,255,255,0.92)}
+
+    /* Footer */
+    footer{margin-top:36px;padding:24px 0;color:var(--muted);font-size:14px}
+    .tiny{font-size:13px;color:var(--muted)}
+
+    /* micro animations */
+    .fade-up{opacity:0;transform:translateY(10px);transition:all .6s cubic-bezier(.2,.9,.3,1)}
+    .in-view{opacity:1;transform:none}
+
+    /* Utility */
+    .center{display:flex;align-items:center;justify-content:center}
+    .muted{color:var(--muted)}
+    .pill{display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(15,118,110,0.08);color:var(--green-700);font-weight:700}
+  </style>
+</head>
+<body>
+
+  <!-- SITE HEADER -->
+  <header class="site-header">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between">
+      <div class="brand">
+        <div class="logo" aria-hidden>EX</div>
+        <div>
+          <h1 style="font-size:16px;margin:0;color:white">Excel Desde Cero</h1>
+          <div style="font-size:12px;color:rgba(255,255,255,0.9)">Manual práctico • Español (LATAM)</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="principal">
+        <a class="tiny muted" href="#video" style="color:white;opacity:0.95">Ver VSL</a>
+        <a class="tiny muted" href="#faq" style="color:white;opacity:0.95">FAQ</a>
+        <!-- Replace HOTMART link below -->
+        <a id="header-cta" class="cta-header" href="https://pay.hotmart.com/EXEMPLO_CHECKOUT" target="_blank" rel="noopener noreferrer">📘 Adquirir Ahora</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-card fade-up">
+        <span class="kicker">CURSO / EBOOK</span>
+        <h2 class="title">Aprende Excel desde cero — Domina las hojas de cálculo y mejora tus oportunidades laborales</h2>
+        <p class="lead">Este manual práctico te lleva paso a paso: desde lo más básico hasta tablas, funciones y gráficos. Diseñado para principiantes que desean resultados reales y aplicables.</p>
+
+        <div class="benefits" style="margin-top:18px">
+          <div class="benefit"><div class="dot">1</div><div><strong>100% práctico</strong><div class="muted">Ejemplos reales y ejercicios.</div></div></div>
+          <div class="benefit"><div class="dot">2</div><div><strong>Rápido y directo</strong><div class="muted">Aprende lo indispensable en horas.</div></div></div>
+          <div class="benefit"><div class="dot">3</div><div><strong>Acceso instantáneo</strong><div class="muted">Descarga tras la compra en Hotmart.</div></div></div>
+          <div class="benefit"><div class="dot">4</div><div><strong>Ideal para LATAM</strong><div class="muted">Español neutro y ejemplos aplicables.</div></div></div>
+        </div>
+
+        <div class="hero-actions">
+          <!-- Replace HOTMART link below -->
+          <a id="cta-hero" class="btn-primary" href="https://pay.hotmart.com/EXEMPLO_CHECKOUT" target="_blank" rel="noopener noreferrer">Sí, quiero mi eBook — USD 9.90</a>
+          <a class="btn-ghost" href="#video">Ver video (2 min)</a>
+        </div>
+
+        <p class="tiny" style="margin-top:14px">Pago seguro por Hotmart • Soporte por WhatsApp • Política de reembolso según Hotmart</p>
+      </div>
+
+      <!-- RIGHT: Video + cover -->
+      <aside class="card-video fade-up">
+        <div class="cover-preview">
+          <!-- Replace with your cover image -->
+          <img src="/cover-preview.png" alt="Portada de Excel Desde Cero — preview" />
+        </div>
+
+        <div class="meta">
+          <div>
+            <div style="font-weight:800">Excel Desde Cero</div>
+            <small class="muted">Manual práctico • PDF descargable</small>
+          </div>
+          <div style="text-align:right">
+            <div class="pill">Entrada: USD 9.90</div>
+            <small class="muted" style="display:block;margin-top:8px">Entrega instantánea</small>
+          </div>
+        </div>
+
+        <!-- Teaser video -->
+        <div style="margin-top:8px">
+          <div style="font-weight:700;margin-bottom:6px">Teaser (15s)</div>
+          <!-- Replace TEASER_VIDEO_URL -->
+          <video id="teaser" src="VTEASER_MP4_URL_AQUI" playsinline muted loop controls style="width:100%;border-radius:10px;background:#000">Tu navegador no soporta el video.</video>
+        </div>
+      </aside>
+    </section>
+
+    <!-- VSL SECTION -->
+    <section id="video" class="vsl-wrap fade-up" aria-labelledby="vsl-title" style="margin-top:28px">
+      <div style="max-width:980px;margin:0 auto">
+        <h3 id="vsl-title" style="margin:0">Video explicativo — 2 minutos</h3>
+        <p class="muted" style="margin-top:8px">Mira en 2 minutos por qué este manual es la forma más rápida y práctica de empezar con Excel.</p>
+
+        <div class="video-embed" style="margin-top:16px;overflow:hidden;border-radius:12px">
+          <!-- Replace VSL_VIDEO_URL -->
+          <video id="vslVideo" src="VSL_VIDEO_URL" controls playsinline style="width:100%;height:100%;object-fit:cover;border-radius:12px">Tu navegador no soporta video.</video>
+        </div>
+
+        <div style="text-align:center;margin-top:14px">
+          <!-- Replace HOTMART link -->
+          <a id="vsl-cta" class="btn-primary" href="https://pay.hotmart.com/EXEMPLO_CHECKOUT" target="_blank" rel="noopener noreferrer">Sí, quiero mi eBook — Obtener ahora</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROOF / TESTIMONIALS -->
+    <section class="proofs fade-up" aria-label="testimonios" style="margin-top:26px">
+      <div class="proof">
+        <div class="stars">★★★★★</div>
+        <p style="margin-top:10px;font-weight:700">Rápido y claro</p>
+        <p class="muted" style="margin-top:8px">"Aprendí lo básico en pocas horas. Muy práctico y directo." — Ana, Colombia</p>
+      </div>
+      <div class="proof">
+        <div class="stars">★★★★★</div>
+        <p style="margin-top:10px;font-weight:700">Perfecto para principiantes</p>
+        <p class="muted" style="margin-top:8px">"Lo compré y me permitió aplicar en entrevistas de trabajo." — Luis, Perú</p>
+      </div>
+      <div class="proof">
+        <div class="stars">★★★★★</div>
+        <p style="margin-top:10px;font-weight:700">Buena relación calidad-precio</p>
+        <p class="muted" style="margin-top:8px">"Contenido claro y ejercicios prácticos. Lo recomiendo." — María, México</p>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-grid fade-up" style="margin-top:26px">
+      <div class="feature">
+        <div class="icon">A</div>
+        <div>
+          <strong>Fundamentos claros</strong>
+          <div class="muted" style="margin-top:6px">Navegación, referencias, formato y operaciones básicas.</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="icon">B</div>
+        <div>
+          <strong>Fórmulas esenciales</strong>
+          <div class="muted" style="margin-top:6px">SUMA, SI, PROMEDIO, CONTAR, BUSCAR y más.</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="icon">C</div>
+        <div>
+          <strong>Visualización</strong>
+          <div class="muted" style="margin-top:6px">Creación de tablas, gráficos y paneles básicos.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq fade-up" style="margin-top:26px">
+      <h4 style="margin:0 0 10px 0">Preguntas frecuentes</h4>
+      <div class="accordion" role="list">
+        <div class="q" role="button" tabindex="0" data-target="a1"><span>¿Es apto para principiantes?</span><span>+</span></div>
+        <div id="a1" class="a">Sí. Está diseñado para quienes nunca han utilizado Excel. Paso a paso con ejemplos prácticos.</div>
+
+        <div class="q" role="button" tabindex="0" data-target="a2"><span>¿En qué idioma está?</span><span>+</span></div>
+        <div id="a2" class="a">Español neutro — válido para México, Colombia, Perú, Chile y mayor parte de LATAM.</div>
+
+        <div class="q" role="button" tabindex="0" data-target="a3"><span>¿Cómo se entrega el material?</span><span>+</span></div>
+        <div id="a3" class="a">Acceso automático y descarga del PDF a través de Hotmart tras la compra.</div>
+
+        <div class="q" role="button" tabindex="0" data-target="a4"><span>¿Hay garantía?</span><span>+</span></div>
+        <div id="a4" class="a">Hotmart maneja la política de reembolso; revisa la configuración al comprar.</div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta fade-up" style="margin-top:28px">
+      <div>
+        <h3>Empieza hoy — Mejora tus oportunidades</h3>
+        <p class="muted" style="margin-top:6px">Domina las habilidades más demandadas y destaca en procesos de selección.</p>
+      </div>
+      <!-- Replace HOTMART link -->
+      <div style="display:flex;gap:12px;align-items:center">
+        <a id="final-cta-btn" class="btn-primary" href="https://pay.hotmart.com/EXEMPLO_CHECKOUT" target="_blank" rel="noopener noreferrer">Adquirir Ahora — USD 9.90</a>
+        <a class="btn-ghost" href="#faq">Leer FAQ</a>
+      </div>
+    </section>
+
+    <!-- Small legal / trust -->
+    <footer>
+      <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div class="tiny">© <span id="year"></span> Excel Desde Cero — Todos los derechos reservados.</div>
+        <div class="tiny muted">Política de privacidad • Términos • Soporte</div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- === SCRIPTS: interactions, animations, analytics placeholders === -->
+  <script>
+    // ---------- Placeholders you MUST replace ----------
+    // Replace HOTMART links (3 places) and VSL/TEASER video URLs at top of file if needed.
+    // Example quick replacements in JS (not necessary if you change HTML manually):
+    (function(){
+      // set year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Smooth scroll for internal links
+      document.querySelectorAll('a[href^="#"]').forEach(function(a){
+        a.addEventListener('click', function(e){
+          var href = this.getAttribute('href');
+          if (href.length > 1) {
+            e.preventDefault();
+            var el = document.querySelector(href);
+            if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+          }
+        });
+      });
+
+      // Simple reveal on scroll
+      var fades = document.querySelectorAll('.fade-up');
+      var obs = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) entry.target.classList.add('in-view');
+        });
+      }, {threshold: 0.12});
+      fades.forEach(function(n){ obs.observe(n); });
+
+      // Accordion FAQ
+      document.querySelectorAll('.q').forEach(function(q){
+        q.addEventListener('click', toggleQ);
+        q.addEventListener('keypress', function(e){ if(e.key === 'Enter' || e.key === ' ') toggleQ.call(q); });
+      });
+      function toggleQ(){
+        var target = this.dataset.target;
+        var panel = document.getElementById(target);
+        if (!panel) return;
+        var open = panel.style.display === 'block';
+        // close all
+        document.querySelectorAll('.accordion .a').forEach(function(a){ a.style.display='none'; });
+        document.querySelectorAll('.accordion .q span:last-child').forEach(function(s){ s.textContent='+'; });
+        if (!open){
+          panel.style.display = 'block';
+          this.querySelector('span:last-child').textContent = '−';
+        } else {
+          panel.style.display = 'none';
+          this.querySelector('span:last-child').textContent = '+';
+        }
+      }
+
+      // Ensure video autoplay policy: show play button if cannot autoplay
+      var vsl = document.getElementById('vslVideo');
+      if (vsl){
+        vsl.addEventListener('error', function(){ console.warn('Error: VSL video not found or blocked'); });
+      }
+      var teaser = document.getElementById('teaser');
+      if (teaser){
+        teaser.addEventListener('error', function(){ console.warn('Teaser video not found or blocked'); });
+      }
+
+      // Click tracking (simple): pushes to console, integrate with analytics/pixel later
+      function trackClick(name){
+        console.log('Track click:', name, new Date().toISOString());
+        // here you can integrate FB Pixel, Google Analytics, or a fetch to your server
+      }
+      document.querySelectorAll('#cta-hero, #vsl-cta, #final-cta-btn, #header-cta').forEach(function(btn){
+        btn.addEventListener('click', function(){ trackClick('checkout-click'); });
+      });
+
+      // Accessibility: focus outlines on keyboard navigation
+      (function(){
+        var usingMouse = true;
+        window.addEventListener('mousedown', function(){ usingMouse = true; document.documentElement.classList.add('using-mouse'); });
+        window.addEventListener('keydown', function(e){ if(e.key === 'Tab') { usingMouse = false; document.documentElement.classList.remove('using-mouse'); }});
+      })();
+
+    })();
+  </script>
+
+  <!-- === NOTES & INSTRUCTIONS (in-page, hidden from users) === -->
+  <!--
+    INSTRUÇÕES RÁPIDAS:
+    1) Substitua os placeholders:
+       - Links Hotmart: buscar "EXEMPLO_CHECKOUT" no arquivo e substituir pelo seu link.
+       - VSL_VIDEO_URL: substituir em <video id="vslVideo" src="VSL_VIDEO_URL">.
+       - TEASER_VIDEO_URL: substituir em <video id="teaser" src="VTEASER_MP4_URL_AQUI">.
+       - cover-preview.png: colocar no mesmo diretório ou trocar o caminho.
+    2) Para instalar no Vercel:
+       - Crie repositório com este index.html na raiz ou como static site.
+       - Conectar repositório ao Vercel e fazer Deploy — Vercel detecta static site e publica.
+    3) Pixel / Analytics:
+       - Insira Meta Pixel ou GA no <head> conforme precisa (colocar script do pixel).
+    4) Testes:
+       - Teste checkout: clique nos CTAs e confirme redirecionamento ao checkout Hotmart.
+       - Teste VSL em múltiplos navegadores (mobile / desktop).
+    5) Otimização de conversão:
+       - A/B teste títulos, preço e criativos do vídeo.
+       - Use tráfego inicial baixo e observe CPA antes de escalar.
+  -->
+
+</body>
+</html>
